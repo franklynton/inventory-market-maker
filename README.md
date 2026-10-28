@@ -40,8 +40,9 @@ which is the skew doing its job of slowing accumulation:
 ## Run
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install numpy pandas matplotlib
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python simulate.py            # --steps, --seed, --out, --no-plots
+.venv/bin/python -m pytest              # unit tests for quoting, tiers and limits
 ```
 
 ## Output (`output/`)
@@ -60,3 +61,4 @@ python3 -m venv .venv && .venv/bin/pip install numpy pandas matplotlib
 - `market_maker.py`: assets, tiers, price feed, quoting engine, client flow
 - `simulate.py`: simulation loop and CSV logging
 - `plots.py`: Matplotlib charts
+- `tests/test_market_maker.py`: pytest checks of tier boundaries, quote skew, position limits and P&L
